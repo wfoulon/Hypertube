@@ -24,7 +24,7 @@ let fs = Npm.require('fs')
 let _fs = Npm.require('fs-extra')
 let parseTorrent = Npm.require('parse-torrent')
 let mainPath = Npm.require('path')
-let path = '/sgoinfre/goinfre/Perso/llonger/hypertube/videos/'
+let path = 'sgoinfre/goinfre/Perso/llonger/hypertube/videos/'
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path
 const ffmpeg = require('fluent-ffmpeg')
 WebApp.connectHandlers.use(bodyParser.urlencoded({

@@ -32,15 +32,15 @@ Meteor.methods({
         })
         if (moviePath) {
           movie.screenshot = 'data:image/png;base64,' + await new Promise((resolve, reject) => {
-            var proc = ffmpeg('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + moviePath.path)
+            var proc = ffmpeg('sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + moviePath.path)
               .on('filenames', function (filenames) {
               })
               .on('end', function () {
                 // console.log('screenshots were saved')
-                fs.readFile('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/thumbnails/' + `${movie.userId}-tmp.png`, (err, result) => {
+                fs.readFile('sgoinfre/goinfre/Perso/llonger/hypertube/videos/thumbnails/' + `${movie.userId}-tmp.png`, (err, result) => {
                   if (!err) {
                     resolve(new Buffer(result).toString('base64'))
-                    fs.unlinkSync('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/thumbnails/' + `${movie.userId}-tmp.png`)
+                    fs.unlinkSync('sgoinfre/goinfre/Perso/llonger/hypertube/videos/thumbnails/' + `${movie.userId}-tmp.png`)
                   }
                 })
               })
@@ -51,7 +51,7 @@ Meteor.methods({
               .takeScreenshots({
                 timestamps: [movie.elapsed],
                 filename: `${movie.userId}-tmp.png`
-              }, '/sgoinfre/goinfre/Perso/llonger/hypertube/videos/thumbnails')
+              }, 'sgoinfre/goinfre/Perso/llonger/hypertube/videos/thumbnails')
           })
         }
       }

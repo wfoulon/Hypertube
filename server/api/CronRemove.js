@@ -32,7 +32,7 @@ SyncedCron.add({
     let result = MovieDB.find({$expr: {$lt: ['$last_watch', now]}}).fetch()
     if (result.length > 0) {
       result.map((val) => {
-        fs.unlinkSync('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + val.path)
+        fs.unlinkSync('sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + val.path)
         MovieDB.remove({_id: val._id})
       })
     }

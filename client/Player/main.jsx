@@ -8,7 +8,7 @@ import DropMenu from './component/menus'
 import DropMenuTv from './component/menusTv'
 import DropMenuSub from './component/menuSub'
 let count = 0
-const SubPath = '/sgoinfre/goinfre/Perso/llonger/hypertube/videos/public/sub/'
+const SubPath = 'sgoinfre/goinfre/Perso/llonger/hypertube/videos/public/sub/'
 let VideoPromise = undefined
 import { SubtitlesFiles } from '/common/Collections/Files'
 let ErrorTimer = null

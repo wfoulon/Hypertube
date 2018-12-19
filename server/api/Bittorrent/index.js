@@ -28,9 +28,9 @@ export default function CreateTorrent(hash, res, req) {
 	})
 	if (!result || !result.finished) {
 		let engine = torrentStream(magnetLink, {
-			tmp: '/sgoinfre/goinfre/Perso/llonger/hypertube/videos/Torrents/downloading',
+			tmp: 'sgoinfre/goinfre/Perso/llonger/hypertube/videos/Torrents/downloading',
 			// path: path + 'Torrents/downloading',
-			path: '/sgoinfre/goinfre/Perso/llonger/hypertube/videos',
+			path: 'sgoinfre/goinfre/Perso/llonger/hypertube/videos',
 			verify: true,
 			trackers: [
 				'udp://tracker.leechers-paradise.org:6969/announce',
@@ -181,7 +181,7 @@ export default function CreateTorrent(hash, res, req) {
 			_id: result._id
 		}, {$set:{'last_watch': now}})
 		let file = result.path
-		let stat = fs.statSync('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + file)
+		let stat = fs.statSync('sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + file)
 		let total = stat.size
 		let start = 0
 		let end = total - 1
@@ -231,7 +231,7 @@ function streamFile2(res, file, start, end, mimetype, fileName) {
 	currentStream = res
 	if (mimetype === 'video/ogg' || mimetype === 'video/mp4') {
 		// let stream = fs.createReadStream(path + '/Torrents/downloading/' + file, {
-		let stream = fs.createReadStream('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + file, {
+		let stream = fs.createReadStream('sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + file, {
 			start,
 			end
 		})
@@ -239,7 +239,7 @@ function streamFile2(res, file, start, end, mimetype, fileName) {
 	}
 	else {
 		// let stream = fs.createReadStream(path + '/Torrents/downloading/' + file, {
-		let torrent = fs.createReadStream('/sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + file, {
+		let torrent = fs.createReadStream('sgoinfre/goinfre/Perso/llonger/hypertube/videos/' + file, {
 			start,
 			end
 		})
